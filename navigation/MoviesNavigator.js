@@ -11,7 +11,7 @@ const MoviesNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerShown: false
+      headerShown: true
     }
   }
 );

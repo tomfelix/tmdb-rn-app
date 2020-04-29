@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Card, Button, Icon } from 'react-native-elements';
 
-const MovieCard = () => {
+const MovieCard = (props) => {
   return (
     <View>
       <Card
@@ -14,6 +14,9 @@ const MovieCard = () => {
           icon={<Icon name="code" color="#ffffff" />}
           buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
           title="VIEW NOW"
+          onPress={() => {
+            props.handleButtonClick();
+          }}
         />
       </Card>
     </View>

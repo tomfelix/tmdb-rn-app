@@ -22,13 +22,23 @@ const list = [
   }
 ];
 
-const MoviesScreen = () => {
+const MoviesScreen = (props) => {
   const keyExtractor = (item, index) => index.toString();
 
   return (
     <View style={{ flex: 1 }}>
       <SearchBarComponent />
-      <FlatList keyExtractor={keyExtractor} data={list} renderItem={() => <MovieCard />} />
+      <FlatList
+        keyExtractor={keyExtractor}
+        data={list}
+        renderItem={() => (
+          <MovieCard
+            handleButtonClick={() => {
+              props.navigation.navigate('MovieDetail');
+            }}
+          />
+        )}
+      />
     </View>
   );
 };
