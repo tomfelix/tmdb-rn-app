@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const MovieDetailScreen = () => {
   return (
     <View>
-      <Text />
+      <Text>MovieDetail screen</Text>
     </View>
   );
 };

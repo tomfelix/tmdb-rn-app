@@ -1,10 +1,8 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { Platform } from 'react-native';
 
 import MovieDetailScreen from '../screens/MovieDetailScreen';
 import MoviesScreen from '../screens/MoviesScreen';
-import Colors from '../constants/Colors';
 
 const MoviesNavigator = createStackNavigator(
   {
@@ -13,10 +11,7 @@ const MoviesNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
-      },
-      headerTintColor: Platform.OS === 'android' ? Colors.white : Colors.primary
+      headerShown: false
     }
   }
 );
