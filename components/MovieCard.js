@@ -7,8 +7,10 @@ const MovieCard = (props) => {
     <View>
       <Card
         title={props.title}
-        image={{
-          uri: `https://api.themoviedb.org/${props.cover}`
+        image={{ uri: `https://image.tmdb.org/t/p/w500/${props.cover}` }}
+        imageStyle={{
+          width: '100%',
+          height: 200
         }}>
         <Text style={{ marginBottom: 10 }}>Popularity: {props.popularity}</Text>
         <Text style={{ marginBottom: 10 }}>Votes: {props.votes}</Text>
