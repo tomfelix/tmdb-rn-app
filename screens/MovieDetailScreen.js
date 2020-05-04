@@ -24,8 +24,7 @@ const MovieDetailScreen = (props) => {
     fetchData();
   }, [movieId]);
 
-  console.log('movieId', movieId, data?.data?.title);
-  if (data.length == 0) {
+  if (data.length === 0) {
     return (
       <View>
         <Text>loading</Text>
@@ -59,6 +58,14 @@ const MovieDetailScreen = (props) => {
       </View>
     </ScrollView>
   );
+};
+
+MovieDetailScreen.navigationOptions = (navigationData) => {
+  const movieTitle = navigationData.navigation.getParam('movieTitle');
+  return {
+    title: movieTitle.length > 20 ? `${movieTitle.slice(0, 20)}...` : movieTitle,
+    headerTitleAlign: 'center'
+  };
 };
 
 const styles = StyleSheet.create({

@@ -37,13 +37,12 @@ const MoviesScreen = (props) => {
               votes={vote_count}
               popularity={popularity}
               handleButtonClick={() => {
-                props.navigation.navigate('MovieDetail', { movieId: id });
+                props.navigation.navigate('MovieDetail', { movieId: id, movieTitle: title });
               }}
             />
           );
         }}
       />
-      <Text>{query}</Text>
     </View>
   );
 };

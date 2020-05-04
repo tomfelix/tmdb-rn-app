@@ -11,7 +11,9 @@ const MoviesNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerShown: true
+      headerShown: true,
+      headerTitleAlign: 'center',
+      headerTitleStyle: { marginHorizontal: 10 }
     }
   }
 );
