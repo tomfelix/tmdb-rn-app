@@ -32,22 +32,31 @@ const MovieDetailScreen = (props) => {
       </View>
     );
   }
+
+  const { poster_path, title, genres, overview, production_countries } = data.data;
   return (
     <ScrollView>
       <Image
         style={styles.image}
-        source={{ uri: `https://image.tmdb.org/t/p/w500/${props.cover}` }}
+        source={{ uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }}
       />
-      <Text style={styles.title}>{data.data.title.toUpperCase()}</Text>
+      <Text style={styles.title}>{title.toUpperCase()}</Text>
       <View style={styles.details}>
-        {data.data.genres.map((genre) => (
-          <Badge size="large" status="primary" value={genre.name} style={styles} key={genre.id} />
+        {genres.map((genre) => (
+          <Badge size="large" status="success" value={genre.name} style={styles} key={genre.id} />
         ))}
       </View>
-      <Text>{data.data.overview}</Text>
-      {data.data.production_countries.map((country) => (
-        <Text key={country.id}>{country.name}</Text>
-      ))}
+      <View style={styles.overview}>
+        <Text>{overview}</Text>
+        <View style={styles.countries}>
+          {production_countries.map((country, index) => (
+            <Text key={country.id}>
+              {country.name}
+              {index != production_countries.length - 1 ? ', ' : ''}
+            </Text>
+          ))}
+        </View>
+      </View>
     </ScrollView>
   );
 };
@@ -70,6 +79,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 10,
     justifyContent: 'space-around'
+  },
+  overview: {
+    marginHorizontal: 10
+  },
+  countries: {
+    flexDirection: 'row',
+    marginVertical: 10
   }
 });
 

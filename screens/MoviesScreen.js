@@ -22,8 +22,6 @@ const MoviesScreen = (props) => {
     fetchData();
   }, [query]);
 
-  console.log('x', query, data);
-
   return (
     <View style={{ flex: 1 }}>
       <SearchBarComponent handleSubmit={(searchQuery) => setQuery(searchQuery)} />

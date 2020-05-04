@@ -3,17 +3,18 @@ import { View, Text } from 'react-native';
 import { Card, Button, Icon } from 'react-native-elements';
 
 const MovieCard = (props) => {
+  const { title, cover, popularity, votes } = props;
   return (
     <View>
       <Card
-        title={props.title}
-        image={{ uri: `https://image.tmdb.org/t/p/w500/${props.cover}` }}
+        title={title}
+        image={{ uri: `https://image.tmdb.org/t/p/w500/${cover}` }}
         imageStyle={{
           width: '100%',
           height: 200
         }}>
-        <Text style={{ marginBottom: 10 }}>Popularity: {props.popularity}</Text>
-        <Text style={{ marginBottom: 10 }}>Votes: {props.votes}</Text>
+        <Text style={{ marginBottom: 10 }}>Popularity: {popularity}</Text>
+        <Text style={{ marginBottom: 10 }}>Votes: {votes}</Text>
         <Button
           icon={<Icon name="code" color="#ffffff" />}
           buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
