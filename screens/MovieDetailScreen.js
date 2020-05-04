@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Text, Image } from 'react-native-elements';
 
-const MovieDetailScreen = () => {
+const MovieDetailScreen = (props) => {
   return (
     <View>
       <Text>title</Text>

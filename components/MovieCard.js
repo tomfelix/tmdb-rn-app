@@ -6,10 +6,12 @@ const MovieCard = (props) => {
   return (
     <View>
       <Card
-        title="title"
-        image={{ uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg' }}>
-        <Text style={{ marginBottom: 10 }}>Popularity: 10</Text>
-        <Text style={{ marginBottom: 10 }}>Rating: 10</Text>
+        title={props.title}
+        image={{
+          uri: `https://api.themoviedb.org/${props.cover}`
+        }}>
+        <Text style={{ marginBottom: 10 }}>Popularity: {props.popularity}</Text>
+        <Text style={{ marginBottom: 10 }}>Votes: {props.votes}</Text>
         <Button
           icon={<Icon name="code" color="#ffffff" />}
           buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}

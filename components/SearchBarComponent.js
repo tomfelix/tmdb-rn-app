@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { SearchBar } from 'react-native-elements';
-import { View, Alert } from 'react-native';
+import { View } from 'react-native';
 
-const SearchBarComponent = () => {
-  const [query, setQuery] = useState('');
-  console.log('====================================');
-  console.log(query);
-  console.log('====================================');
+const SearchBarComponent = (props) => {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <View>
       <SearchBar
-        onSubmitEditing={() => Alert.alert('submitted')}
+        onSubmitEditing={() => props.handleSubmit(searchQuery)}
         placeholder="Type Here..."
-        onChangeText={setQuery}
-        value={query}
+        onChangeText={setSearchQuery}
+        value={searchQuery}
       />
     </View>
   );
