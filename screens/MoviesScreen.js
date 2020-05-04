@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
+import Config from 'react-native-config';
 
 import SearchBarComponent from '../components/SearchBarComponent';
 import MovieCard from '../components/MovieCard';
