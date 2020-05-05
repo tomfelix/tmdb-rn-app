@@ -33,7 +33,7 @@ const MoviesScreen = (props) => {
   }
 
   return (
-    <View>
+    <View style={styles.screen}>
       <SearchBarComponent handleSubmit={(searchQuery) => setQuery(searchQuery)} />
       <FlatList
         data={data}
@@ -60,8 +60,7 @@ const MoviesScreen = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    paddingBottom: 20
   },
   emptyScreen: {
     marginVertical: '50%',
