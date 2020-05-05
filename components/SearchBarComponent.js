@@ -8,6 +8,7 @@ const SearchBarComponent = (props) => {
   return (
     <View>
       <SearchBar
+        round
         onSubmitEditing={() => {
           if (searchQuery.length < 1) {
             Alert.alert('Put at least one letter!');
