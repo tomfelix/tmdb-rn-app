@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList, Text, StyleSheet } from 'react-native';
 import axios from 'axios';
 
 import SearchBarComponent from '../components/SearchBarComponent';
@@ -18,12 +18,22 @@ const MoviesScreen = (props) => {
       );
       setData(result.data.results);
     };
-
     fetchData();
   }, [query]);
 
+  if (data.length === 0) {
+    return (
+      <View>
+        <SearchBarComponent handleSubmit={(searchQuery) => setQuery(searchQuery)} />
+        <View style={styles.emptyScreen}>
+          <Text>There is no movie for your search...</Text>
+        </View>
+      </View>
+    );
+  }
+
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       <SearchBarComponent handleSubmit={(searchQuery) => setQuery(searchQuery)} />
       <FlatList
         data={data}
@@ -47,4 +57,15 @@ const MoviesScreen = (props) => {
   );
 };
 
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  emptyScreen: {
+    marginVertical: '50%',
+    alignItems: 'center'
+  }
+});
 export default MoviesScreen;

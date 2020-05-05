@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
-import { Text, Image, ListItem, Badge } from 'react-native-elements';
+import { View, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
+import { Text, Image, Badge } from 'react-native-elements';
 import Axios from 'axios';
 
 const API_KEY = '22d3bf9dd261998ae9158dcedfb8b4b9';
@@ -17,17 +17,15 @@ const MovieDetailScreen = (props) => {
         &api_key=${API_KEY}
         `
       );
-
       setData(result);
     };
-
     fetchData();
   }, [movieId]);
 
   if (data.length === 0) {
     return (
-      <View>
-        <Text>loading</Text>
+      <View style={styles.screen}>
+        <ActivityIndicator size="large" color="#0000ff" />
       </View>
     );
   }
@@ -42,7 +40,7 @@ const MovieDetailScreen = (props) => {
       <Text style={styles.title}>{title.toUpperCase()}</Text>
       <View style={styles.details}>
         {genres.map((genre) => (
-          <Badge size="large" status="success" value={genre.name} style={styles} key={genre.id} />
+          <Badge size="large" status="success" value={genre.name} key={genre.id} />
         ))}
       </View>
       <View style={styles.overview}>
@@ -51,7 +49,7 @@ const MovieDetailScreen = (props) => {
           {production_countries.map((country, index) => (
             <Text key={country.id}>
               {country.name}
-              {index != production_countries.length - 1 ? ', ' : ''}
+              {index !== production_countries.length - 1 ? ', ' : ''}
             </Text>
           ))}
         </View>
@@ -76,7 +74,8 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    fontSize: 25
+    fontSize: 25,
+    marginHorizontal: 10
   },
   image: {
     width: '100%',
